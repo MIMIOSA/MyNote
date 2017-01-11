@@ -17,7 +17,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             + "times text)";
 
     public MyDatabaseHelper(Context context) {
-        //super(context, name, factory, version);
         super(context, "mydate", null, 1);
     }
 

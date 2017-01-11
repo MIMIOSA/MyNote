@@ -20,7 +20,7 @@ public class MyDataBase {
         myDatabaseHelper = new MyDatabaseHelper(context);
     }
 
-    //得到第一个界面的ListView的array数据
+    //得到列表界面的ListView的array数据
     public ArrayList<SaveData> getArray() {
         ArrayList<SaveData> array = new ArrayList<SaveData>();
         ArrayList<SaveData> array1 = new ArrayList<SaveData>();
@@ -69,9 +69,9 @@ public class MyDataBase {
     }
 
     //删除
-    public void toDelete(int ids){
-        myDatabase=myDatabaseHelper.getWritableDatabase();
-        myDatabase.execSQL("delete  from mybook where ids="+ids+"");
+    public void toDelete(int ids) {
+        myDatabase = myDatabaseHelper.getWritableDatabase();
+        myDatabase.execSQL("delete  from mybook where ids=" + ids + "");
         myDatabase.close();
     }
 }

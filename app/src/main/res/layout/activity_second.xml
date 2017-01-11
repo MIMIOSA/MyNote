@@ -47,7 +47,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="10dp"
         android:paddingTop="3dp"
-        android:hint="这这里写内容..."/>
+        android:hint="这里写内容..."/>
 
     <TextView
         android:id="@+id/textView2"
@@ -68,5 +68,7 @@
         android:layout_marginBottom="5dp"
 
         android:paddingRight="10dp"
-        android:text="保存" />
+        android:text="保存"
+        android:background="@android:color/holo_blue_dark"
+        android:textColor="@android:color/background_light" />
 </RelativeLayout>

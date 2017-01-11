@@ -39,7 +39,7 @@ public class SecondAtivity extends Activity {
             ed1.setText(saveData.getTitle());
             ed2.setText(saveData.getContent());
         }
-        //保存按钮的点击事件，他和返回按钮是一样的功能，所以都调用isSave()方法；
+        //保存按钮的点击事件，和返回按钮是一样的功能
         bt1.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -52,7 +52,6 @@ public class SecondAtivity extends Activity {
     // 返回按钮调用的方法。
     @Override
     public void onBackPressed() {
-        // TODO Auto-generated method stub
         //super.onBackPressed();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd  HH:mm:ss");
         Date curDate = new Date(System.currentTimeMillis());//获取当前时间
@@ -62,12 +61,13 @@ public class SecondAtivity extends Activity {
         //是要修改数据
         if (ids != 0) {
             saveData = new SaveData(title, ids, content, times);
+            //saveData = new SaveData(title, ids, content);
             myDatabase.toUpdate(saveData);
             Intent intent = new Intent(SecondAtivity.this, MainActivity.class);
             startActivity(intent);
             SecondAtivity.this.finish();
         }
-        //新建日记
+        //新建笔记
         else {
             if (title.equals("") && content.equals("")) {
                 Intent intent = new Intent(SecondAtivity.this, MainActivity.class);
@@ -98,7 +98,7 @@ public class SecondAtivity extends Activity {
             startActivity(intent);
             SecondAtivity.this.finish();
         }
-        //新建日记
+        //新建笔记
         else {
             saveData = new SaveData(title, content, times);
             myDatabase.toInsert(saveData);
@@ -107,28 +107,4 @@ public class SecondAtivity extends Activity {
             SecondAtivity.this.finish();
         }
     }
-
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.second_ativity, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // TODO Auto-generated method stub
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent intent=new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "标题："+ed1.getText().toString()+"    内容："+ed2.getText().toString());
-                startActivity(intent);
-                break;
-
-            default:
-                break;
-        }
-        return false;
-    }*/
 }
